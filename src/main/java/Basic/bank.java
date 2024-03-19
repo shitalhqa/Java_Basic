@@ -6,11 +6,14 @@ public class bank {
     private int pwd;
     private double bal =5000;
 
-    public void deposit (double money) {
+    public void deposit () {
         System.out.println("Enter password ");
         Scanner s = new Scanner(System.in);
         pwd = s.nextInt();
         if(pwd == 123456){
+            System.out.println("Enter Deposit Amount :");
+            Scanner drawAmt = new Scanner(System.in);
+            double money = drawAmt.nextDouble();
             bal = bal + money;
             System.out.println("Deposit Amount = " + " " + money);
             System.out.println("Total Balance Amount is " + " " + bal);
@@ -20,12 +23,15 @@ public class bank {
                     "Please Enter Correct Password");
         }
     }
-    public void withdraw(double money){
+    public void withdraw(){
         System.out.println("Enter password ");
         Scanner s = new Scanner(System.in);
         pwd = s.nextInt();
         if(pwd == 123456)
         {
+            System.out.println("Enter Amount of withdraw");
+            Scanner drawAmt = new Scanner(System.in);
+            double  money = drawAmt.nextDouble();
             bal = bal - money;
             System.out.println("Withdraw Amount is : " + money);
             System.out.println("Total Balance Amount is: " + bal);
@@ -48,6 +54,7 @@ public class bank {
 static class customer{
     public static void main(String[] args) {
         bank Bank = new bank();
+        double a;
         System.out.println("1. Check Balance");
         System.out.println("2. Withdraw Amount");
         System.out.println("3. Deposit Amount ");
@@ -59,9 +66,9 @@ static class customer{
         {
             case 1 : Bank.checkBalance();
             break;
-            case 2 : Bank.withdraw(1000);
+            case 2 : Bank.withdraw();
             break;
-            case 3 : Bank.deposit(5000);
+            case 3 : Bank.deposit();
             break;
             default:
                 System.out.println(" Invalid choice ... is enter");
